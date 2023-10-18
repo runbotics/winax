@@ -1,53 +1,62 @@
 {
-  "name": "winax",
-  "version": "3.4.1",
-  "description": "Windows COM bindings",
-  "homepage": "https://github.com/durs/node-activex",
-  "keywords": [
-    "OLE",
-    "COM",
-    "ActiveX",
-    "ActiveXObject",
-    "CreateObject",
-    "Variant",
-    "Dispatch",
-    "WSH",
-    "WMI",
-    "Excel",
-    "Word",
-    "WScript",
-    "ConnectObject",
-    "DisconnectObject"
-  ],
-  "author": {
-    "name": "Yuri Dursin",
-    "url": "https://github.com/durs",
-    "email": "yuri.dursin@gmail.com"
-  },
-  "bin": {
-    "nodewscript": "./NodeWScript.js"
-  },
-  "contributors": [
-    "Yuri Dursin <yuri.dursin@gmail.com>",
-    "Somanuell",
-    "Daniel-Userlane",
-    "Alexey Grinevich <alexey.grinevich@inflectra.com>"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/durs/node-activex.git"
-  },
-  "dependencies": {},
-  "devDependencies": {},
-  "engines": {
-    "node": ">= 10.0.0"
-  },
-  "scripts": {
-    "test": "mocha test"
-  },
-  "license": "MIT",
-  "main": "index.js",
-  "os": [
-    "win32"
-  ]
+    "name": "@runbotics/winax",
+    "version": "3.4.1",
+    "description": "Windows COM bindings",
+    "homepage": "https://github.com/durs/node-activex",
+    "keywords": [
+        "OLE",
+        "COM",
+        "ActiveX",
+        "ActiveXObject",
+        "CreateObject",
+        "Variant",
+        "Dispatch",
+        "WSH",
+        "WMI",
+        "Excel",
+        "Word",
+        "WScript",
+        "ConnectObject",
+        "DisconnectObject"
+    ],
+    "author": {
+        "name": "Yuri Dursin",
+        "url": "https://github.com/durs",
+        "email": "yuri.dursin@gmail.com"
+    },
+    "bin": {
+        "nodewscript": "./NodeWScript.js"
+    },
+    "contributors": [
+        "Yuri Dursin <yuri.dursin@gmail.com>",
+        "Somanuell",
+        "Daniel-Userlane",
+        "Alexey Grinevich <alexey.grinevich@inflectra.com>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/runbotics/winax.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/winax"
+    },
+    "engines": {
+        "node": ">= 10.0.0"
+    },
+    "scripts": {
+        "test": "mocha test",
+        "install": "node-gyp-build",
+        "build": "prebuildify --napi --electron-compat && prebuildify -t electron@18.3.5 -t 11.0.0 -t 12.0.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 18.0.0"
+    },
+    "license": "MIT",
+    "main": "index.js",
+    "os": [
+        "win32"
+    ],
+    "devDependencies": {
+        "prebuildify": "^5.0.1"
+    },
+    "dependencies": {
+        "node-gyp-build": "^4.6.1"
+    }
 }
