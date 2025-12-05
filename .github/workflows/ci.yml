@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: ['18.x', '20.x', '22.x', '23.x']
+        node-version: ['18.x', '20.x', '22.x', '23.x', '24.x']
         os: [windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
@@ -17,6 +17,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run build --if-present
+      - run: npm run prebuild
       # https://community.chocolatey.org/packages?q=Excel
       - name: "Installing Office 365 takes about 5 minutes..."
         run: choco install office365proplus
