@@ -10,7 +10,12 @@
             'src/disp.cpp'
           ],
           'libraries': [],
-          'dependencies': []
+          'dependencies': [],
+          'msvs_settings': {
+            'VCCLCompilerTool': {
+              'AdditionalOptions': ['/std:c++20']
+            }
+          }
         }]
       ]
     }
