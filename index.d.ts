@@ -1,21 +1,38 @@
+export {};
+
+declare global {
+  function ActiveXObject(id: string, options?: ActiveXObjectOptions): any;
+  function ActiveXObject(obj: Record<string, any>): any;
+
+  interface ActiveXObjectOptions {
+    /** Allow activating existing object instance. */
+    activate?: boolean;
+
+    /** Allow using the name of the file in the ROT. **/
+    getobject?: boolean;
+
+    /** Allow using type information. */
+    type?: boolean;
+  }
+}
+
 declare module '@runbotics/winax' {
   export class Object {
-    constructor(id: string, options?: ActiveXOptions);
+    constructor(id: string, options?: ActiveXObjectOptions);
+
     // Define properties typically found on COM objects
     __id?: string;
     __value?: any;
     __type?: any[];
     __methods?: string[];
     __vars?: string[];
+
     // Define general method signatures if any known
     [key: string]: any;
   }
 
-  export interface ActiveXOptions {
-    activate?: boolean; // Allow activate existing object instance
-    getobject?: boolean; // Allow using the name of the file in the ROT
-    type?: boolean;      // Allow using type information
-  }
+  /** @deprecated Use `ActiveXObjectOptions` instead. */
+  export interface ActiveXOptions extends ActiveXObjectOptions {}
 
   export class Variant {
     constructor(value?: any, type?: VariantType);
@@ -38,15 +55,4 @@ declare module '@runbotics/winax' {
 
   // Utility function to release COM objects
   export function release(...objects: any[]): void;
-}
-
-declare global {
-  function ActiveXObject(id: string, options?: ActiveXObjectOptions): any;
-  function ActiveXObject(obj: Record<string, any>): any;
-
-  interface ActiveXObjectOptions {
-    activate?: boolean;
-    getobject?: boolean;
-    type?: boolean;
-  }
 }
