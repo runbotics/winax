@@ -1,0 +1,18 @@
+name: upload-prebuilds
+on:
+  push:
+    branches: [feature/prebuilds]
+jobs:
+  upload:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prebuilds
+          path: prebuilds/
