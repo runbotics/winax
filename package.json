@@ -46,7 +46,7 @@
   "scripts": {
     "test": "mocha test",
     "install": "node-gyp-build",
-    "build": "prebuildify --napi --electron-compat && prebuildify -t 18.0.0 -t 20.0.0 -t 22.0.0 -t 23.0.0 -t 24.0.0 -t electron@39.2.6 -t electron@38.0.0 -t electron@37.0.0 -t electron@36.0.0 -t electron@35.0.0 -t electron@34.0.0 -t electron@33.0.0 -t electron@32.3.3 -t electron@32.0.0 -t electron@31.0.0 -t electron@30.0.0 --compat"
+    "build": "prebuildify --napi --electron-compat && prebuildify -t 18.0.0 -t 20.0.0 -t 22.0.0 -t 23.0.0 -t 24.0.0 -t electron@39.2.6 -t electron@38.0.0 -t electron@37.0.0 -t electron@36.0.0 -t electron@35.0.0 -t electron@34.0.0 -t electron@33.0.0 -t electron@32.3.3 -t electron@32.0.0 -t electron@31.0.0 -t electron@30.0.0"
   },
   "license": "MIT",
   "main": "index.js",
