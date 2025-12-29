@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
+      - run: npm run clean
       - run: npm run build
 
       # https://community.chocolatey.org/packages?q=Excel
